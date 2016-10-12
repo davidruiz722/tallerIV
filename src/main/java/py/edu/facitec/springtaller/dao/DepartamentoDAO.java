@@ -8,17 +8,19 @@ import org.springframework.stereotype.Repository;
 import py.edu.facitec.springtaller.model.Departamento;
 
 @Repository
-public class DepartamentoDAO {
-	
+public class DepartamentoDAO extends DAOGenerico<Departamento>{
 	
 	@PersistenceContext
-	private EntityManager manager;
+	private EntityManager em;
 	
-	public void save(Departamento departamento) {
-		manager.persist(departamento);
-		
+	public DepartamentoDAO() {
+		super(Departamento.class);
 	}
-	
+
+	@Override
+	protected EntityManager getEntityManager() {
+		return em;
+	}
 	
 
 }

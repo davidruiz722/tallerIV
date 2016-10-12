@@ -8,12 +8,19 @@ import org.springframework.stereotype.Repository;
 import py.edu.facitec.springtaller.model.ItemPedido;
 
 @Repository
-public class ItemPedidoDAO {
-
+public class ItemPedidoDAO extends DAOGenerico<ItemPedido>{
 	
 	@PersistenceContext
-	private EntityManager manager;
+	private EntityManager em;
+
+	public ItemPedidoDAO() {
+		super(ItemPedido.class);
+	}
+
+	@Override
+	protected EntityManager getEntityManager() {
+		
+		return em;
+	}
 	
-	public void save(ItemPedido itemPedido) {
-		manager.persist(itemPedido);
-}}
+}

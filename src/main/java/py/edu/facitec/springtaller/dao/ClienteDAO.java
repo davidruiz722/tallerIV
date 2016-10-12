@@ -11,16 +11,20 @@ import py.edu.facitec.springtaller.model.Cliente;
 @Repository 
 //clase que se encarga de la manipulacion de los datos, posibilita posteriormente utilizar la anotacion 
 //Auwired
-public class ClienteDAO { 
+public class ClienteDAO extends DAOGenerico<Cliente>{ 
 
-	
-	
 	@PersistenceContext  	
-	private EntityManager manager; 
+	private EntityManager em;
+	
 	 
-	public void save(Cliente cliente){ 
-		//metodo persist para inserta un dato
-	 	manager.persist(cliente); 
-	} 
+	public ClienteDAO() {
+		super(Cliente.class);
+	}
+
+	@Override
+	protected EntityManager getEntityManager() {
+		
+		return em;
+	}
 } 
 
