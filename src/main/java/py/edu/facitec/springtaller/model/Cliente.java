@@ -3,37 +3,26 @@ package py.edu.facitec.springtaller.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import py.edu.facitec.springtaller.model.general.General;
 
 //significa que creara una tabla cliente
 @Entity
-public class Cliente {
+public class Cliente extends General{
 	
-	//identicacion de clave primaria
-	@Id
-	//generacion automatica de valor
-	@GeneratedValue
-	private Integer id;
-	
+
 	private String nombre;
 	private String correo;
 
-	
+	//Aotacion aplicada para ignorar el atributo de json
+	@JsonIgnore
 	//anotacion que sirve para aclara que de uno para mucho
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos;
 
-
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 
 	public String getNombre() {
@@ -65,12 +54,6 @@ public class Cliente {
 		this.pedidos = pedidos;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", pedidos=" + pedidos + "]";
-	}
-	
 	
 	
 	}

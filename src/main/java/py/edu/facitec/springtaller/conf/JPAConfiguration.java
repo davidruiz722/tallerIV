@@ -22,7 +22,7 @@ public class JPAConfiguration {
  	LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();  
  	em.setDataSource(dataSource());	
  	//paquete a scanear entidades o modelos
- 	em.setPackagesToScan(new String[]{"py.edu.facitec.springtaller.model"});  
+ 	em.setPackagesToScan(new String[]{"py.edu.facitec.springtaller.model", "py.edu.facitec.springtaller.model.general"});  
  	JpaVendorAdapter vendorAdapter =  new HibernateJpaVendorAdapter();  
  	em.setJpaVendorAdapter(vendorAdapter); 
  	em.setJpaProperties(additionalProperties()); 

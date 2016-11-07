@@ -3,19 +3,16 @@ package py.edu.facitec.springtaller.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import py.edu.facitec.springtaller.model.general.General;
+
 
 @Entity
-public class Departamento {
+public class Departamento extends General{
 	
-	
-	@Id
-	@GeneratedValue
-	private Integer id;
+
 	private String descripcion;
 	
 	//indicamos que la relacion es de uno a uno
@@ -25,13 +22,6 @@ public class Departamento {
 	@OneToMany(mappedBy="departamento")
 	private List<Usuario> listaUsuario;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getDescripcion() {
 		return descripcion;
@@ -57,14 +47,6 @@ public class Departamento {
 		this.listaUsuario = listaUsuario;
 	}
 
-	@Override
-	public String toString() {
-		return "Departamento [id=" + id + ", descripcion=" + descripcion + ", gerente=" + gerente + ", listaUsuario="
-				+ listaUsuario + "]";
-	}
-	
-	
-	
 	
 	
 

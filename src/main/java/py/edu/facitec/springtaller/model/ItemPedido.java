@@ -1,32 +1,29 @@
 package py.edu.facitec.springtaller.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import py.edu.facitec.springtaller.model.general.General;
+
 @Entity
-public class ItemPedido {
+public class ItemPedido extends General {
 	
-	@Id
-	@GeneratedValue
-	private Long id;
+
 	private int cantidadProducto;
 	private double subTotal;
 	
 	@ManyToOne
 	private Producto producto;
 	
+	
+	//para una relacion bidireccional
+	@JsonBackReference
 	@ManyToOne
 	private Pedido pedido;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public int getCantidadProducto() {
 		return cantidadProducto;
@@ -60,11 +57,7 @@ public class ItemPedido {
 		this.pedido = pedido;
 	}
 
-	@Override
-	public String toString() {
-		return "ItemPedido [id=" + id + ", cantidadProducto=" + cantidadProducto + ", subTotal=" + subTotal
-				+ ", producto=" + producto + ", pedido=" + pedido + "]";
-	}
+
 
 	
 

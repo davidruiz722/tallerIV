@@ -1,17 +1,15 @@
 package py.edu.facitec.springtaller.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Gerente {
 	
-	
 	@Id
-	@GeneratedValue
 	private Integer id;
+
 	private String ci;
 	private String nombre;
 	
@@ -22,7 +20,7 @@ public class Gerente {
 	
 	
 	public Gerente() {
-		id=0;
+	
 		ci="";
 		nombre="";
 		}
@@ -30,16 +28,9 @@ public class Gerente {
 
 
 
-	public Integer getId() {
-		return id;
-	}
+	
 
 
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 
 
@@ -61,6 +52,36 @@ public class Gerente {
 	public String getNombre() {
 		return nombre;
 	}
+	
+	
+
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+
+
+
+
+
 
 
 
@@ -85,12 +106,7 @@ public class Gerente {
 
 
 
-
-	@Override
-	public String toString() {
-		return "Gerente [id=" + id + ", ci=" + ci + ", nombre=" + nombre + ", departamento=" + departamento + "]";
-	}
-		
+	
 	
 	
 }

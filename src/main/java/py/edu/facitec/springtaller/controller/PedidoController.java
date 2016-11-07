@@ -2,6 +2,8 @@ package py.edu.facitec.springtaller.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,10 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import py.edu.facitec.springtaller.dao.PedidoDAO;
 import py.edu.facitec.springtaller.model.Pedido;
 
+@Transactional 
+@RequestMapping("/pedido") 
+@RestController
 public class PedidoController {
 
 	@Autowired
@@ -48,4 +55,13 @@ public class PedidoController {
 	
 	
 }
+	
+
+	@RequestMapping("/form")
+	public ModelAndView formulario(){
+		ModelAndView model = new ModelAndView("/pedido/form");
+		return model;
+		
 	}
+} 
+	

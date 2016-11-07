@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import py.edu.facitec.springtaller.dao.ProductoDAO;
 import py.edu.facitec.springtaller.model.Producto;
 
 
 @Transactional 
-@RequestMapping("/producto") 
+@RequestMapping("/productos") 
 @RestController
 public class ProductoController {
 	
@@ -74,6 +75,12 @@ public class ProductoController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@RequestMapping("/form")
+	public ModelAndView formulario(){
+		ModelAndView model = new ModelAndView("/productos/form");
+		return model;
+		
+	}
 } 
 
 
